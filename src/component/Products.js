@@ -1,15 +1,14 @@
-import React, { useContext, useEffect, useState } from "react";
-
 import {
   faCheckCircle,
   faEdit,
-  faSearch,
   faTimesCircle,
   faTrash,
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import React, { useContext, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import apiService, { AppContext } from "../service/AppService";
+import SearchForm from "./SearchForm";
 
 function Products() {
   const navigate = useNavigate();
@@ -34,7 +33,7 @@ function Products() {
         ...prodState,
         products: response.data,
         currentPage: currentPage,
-        keyword: keyword, // Corrected keyword to keyword
+        keyword: keyword,
         sizePage: sizePage,
         totalPages: totalPages,
       });
@@ -87,25 +86,13 @@ function Products() {
               {prodState.products.length}
             </span>
           </h5>
-
           <div className="row g-2 mt-2">
             <div className="col-auto">
-              <form onSubmit={handlSearch}>
-                <div className="input-group">
-                  <input
-                    value={query}
-                    onChange={(e) => setQuery(e.target.value)}
-                    type="search"
-                    className="form-control rounded"
-                    placeholder="Search"
-                    aria-label="Search"
-                    aria-describedby="search-addon"
-                  />
-                  <button type="submit" className="btn  btn-primary">
-                    <FontAwesomeIcon icon={faSearch} />
-                  </button>
-                </div>
-              </form>
+              <SearchForm
+                handlSearch={handlSearch}
+                setQuery={setQuery}
+                query={query}
+              ></SearchForm>
             </div>
           </div>
           <table className="table align-middle mb-0 bg-white">

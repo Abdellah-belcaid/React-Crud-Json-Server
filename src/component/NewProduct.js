@@ -8,9 +8,6 @@ function NewProduct() {
   const [checked, setchecked] = useState(false);
 
 
-
-
-  
   const handleSubmit = async (event) => {
     event.preventDefault();    
     const newProduct = {
