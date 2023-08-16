@@ -1,8 +1,15 @@
 import { faSearch } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import React from "react";
+import React, { useContext, useState } from "react";
+import { AppContext } from "../service/AppService";
 
-function SearchForm({ handlSearch, setQuery, query }) {
+function SearchForm({ fetchProducts }) {
+  const [prodState, setProdState] = useContext(AppContext);
+  const [query, setQuery] = useState("");
+  const handlSearch = (event) => {
+    event.preventDefault();
+    fetchProducts(query, 1, prodState.pageSize);
+  };
   return (
     <form onSubmit={handlSearch}>
       <div className="input-group">

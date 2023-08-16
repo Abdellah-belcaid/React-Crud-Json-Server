@@ -12,7 +12,6 @@ import SearchForm from "./SearchForm";
 
 function Products() {
   const navigate = useNavigate();
-  const [query, setQuery] = useState("");
   const [prodState, setProdState] = useContext(AppContext);
 
   useEffect(() => {
@@ -72,10 +71,6 @@ function Products() {
     fetchProducts(prodState.keyword, page, prodState.pageSize);
   };
 
-  const handlSearch = (event) => {
-    event.preventDefault();
-    fetchProducts(query, 1, prodState.pageSize);
-  };
   return (
     <div className="container-fluid mt-2">
       <div className="card">
@@ -89,9 +84,7 @@ function Products() {
           <div className="row g-2 mt-2">
             <div className="col-auto">
               <SearchForm
-                handlSearch={handlSearch}
-                setQuery={setQuery}
-                query={query}
+                fetchProducts={fetchProducts}               
               ></SearchForm>
             </div>
           </div>
