@@ -87,4 +87,4 @@ This will start the development server and open the app in your default web brow
 
 ### Contributing
 
-Contributions are welcome! If you find any issues or have suggestions for improvements, please feel free to submit a pull request.
+Contributions are welcome! If you find any issues or have suggestions for improvements, please feel free to submit a pull request
