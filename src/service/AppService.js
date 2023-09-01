@@ -1,8 +1,8 @@
 import axios from "axios";
 import { createContext, useState } from "react";
 
-const API_BASE_URL = "https://products-manager-two.vercel.app/api"; // Replace with your JSON Server URL
-
+const API_BASE_URL = "https://json-server-vercel-phi-nine.vercel.app";
+//const API_BASE_URL = "http://localhost:8000";
 export const AppContext = createContext();
 
 const apiService = {
