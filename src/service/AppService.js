@@ -1,7 +1,7 @@
 import axios from "axios";
 import { createContext, useState } from "react";
 
-const API_BASE_URL = "https://products-manager-two.vercel.app"; // Replace with your JSON Server URL
+const API_BASE_URL = "https://products-manager-two.vercel.app/api"; // Replace with your JSON Server URL
 
 export const AppContext = createContext();
 
