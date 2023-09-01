@@ -1,10 +1,14 @@
 // JSON Server module
 const jsonServer = require("json-server");
 const server = jsonServer.create();
-const router = jsonServer.router("db/db.json");
+const router = jsonServer.router("./db.json");
 
 // Make sure to use the default middleware
-const middlewares = jsonServer.defaults();
+const middlewares = jsonServer.defaults({
+  static: "./build",
+});
+
+
 
 server.use(middlewares);
 // Add this before server.use(router)
@@ -16,7 +20,7 @@ server.use(
 );
 server.use(router);
 // Listen to port
-server.listen(3000, () => {
+server.listen(8000, () => {
   console.log("JSON Server is running");
 });
 
